@@ -14,6 +14,12 @@ Clone Repository via Git:
 
     cd laravel-react-backend
 
+    Rename .env.example -> .env
+
+    Change variable in .env file
+
+        DB_DATABASE = lara_react
+
 You can install the package via composer:
 
     composer install
