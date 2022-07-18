@@ -19,9 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/users', [UserController::class, 'getUsers'])->name("users");
-Route::get('/user/{id}', [UserController::class, 'getUser'])->name("user");
-Route::post('/user/add', [UserController::class, 'addUser'])->name("user.add");
-Route::post('/user/edit', [UserController::class, 'editUser'])->name("user.edit");
-
-Route::get('/roles', [UserController::class, 'getRoles'])->name("roles");
+Route::group(['prefix' => 'users'], function () {
+    Route::get('/', [UserController::class, 'getUsers'])->name("users");
+    Route::post('/add', [UserController::class, 'addUser'])->name("users.add");
+});
